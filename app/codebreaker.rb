@@ -26,7 +26,6 @@ class Codebreaker
       calc_exact_matches
     end
 
-
     def calc_exact_matches
       secret_number_array = []
       input_array = []
@@ -43,7 +42,12 @@ class Codebreaker
         output.puts "+"
       elsif secret_number_array[3] == input_array[3]
         output.puts "+"
+      else
+        output.puts ""
       end
+    end
+
+    def calc_number_matches
     end
 
     def has_won?
