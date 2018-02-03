@@ -15,11 +15,7 @@ class Codebreaker
 
     def guess(input)
       @input = input
-      if input_is_valid?
-        return
-      else
-        output.puts "Try guessing a number with four digits"
-      end
+      output.puts "Try guessing a number with four digits" unless input_is_valid?
     end
 
     def input_is_valid?
