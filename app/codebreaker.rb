@@ -20,10 +20,15 @@ class Codebreaker
       if input != @secret_number
         output.puts ""
       end
+      if has_won?
+        output.puts "++++"
+      end
     end
 
 
-
+    def has_won?
+      @input == @secret_number
+    end
 
 
 
