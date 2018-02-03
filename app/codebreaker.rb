@@ -20,15 +20,16 @@ class Codebreaker
       if input != @secret_number
         output.puts ""
       end
+
+      calc_exact_matches_one
+      calc_exact_matches_two
+      calc_exact_matches_three
       if has_won?
         output.puts "++++"
       end
-      calc_exact_matches
-      calc_exact_matches_combination
-      calc_exact_matches_combination_three
     end
 
-    def calc_exact_matches
+    def calc_exact_matches_one
       secret_number = @secret_number.split(//)
       input = @input.split(//)
 
@@ -45,7 +46,7 @@ class Codebreaker
       end
     end
 
-    def calc_exact_matches_combination
+    def calc_exact_matches_two
       secret_number_combi = @secret_number.split(//).combination(2).to_a
       input_combi = @input.split(//).combination(2).to_a
       if secret_number_combi.each { |subarray| subarray.include?(input_combi)}
@@ -53,7 +54,7 @@ class Codebreaker
       end
     end
 
-    def calc_exact_matches_combination_three
+    def calc_exact_matches_three
       secret_number_combi = @secret_number.split(//).combination(3).to_a
       input_combi = @input.split(//).combination(3).to_a
       if secret_number_combi.each { |subarray| subarray.include?(input_combi)}
