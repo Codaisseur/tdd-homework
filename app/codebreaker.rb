@@ -27,20 +27,16 @@ class Codebreaker
     end
 
     def calc_exact_matches
-      secret_number_array = []
-      input_array = []
       secret_number = @secret_number.split(//)
       input = @input.split(//)
-      secret_number_array.push(secret_number)
-      input_array.push(input)
 
-      if secret_number_array[0] == input_array[0]
+      if secret_number[0] == input[0]
         output.puts "+"
-      elsif secret_number_array[1] == input_array[1]
+      elsif secret_number[1] == input[1]
         output.puts "+"
-      elsif secret_number_array[2] == input_array[2]
+      elsif secret_number[2] == input[2]
         output.puts "+"
-      elsif secret_number_array[3] == input_array[3]
+      elsif secret_number[3] == input[3]
         output.puts "+"
       else
         output.puts ""
