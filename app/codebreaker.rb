@@ -16,19 +16,23 @@ class Codebreaker
     def guess(input)
       @input = input
       output.puts "Try guessing a number with four digits" unless input.length == 4
-      
+
       if invalid_input?
         return false
       end
 
-      if input != @secret_number
-        output.puts ""
-      end
+      no_match
       calc_exact_matches_one
       calc_exact_matches_two
       calc_exact_matches_three
       calc_one_number_match
       has_won
+    end
+
+    def no_match
+      if @input != @secret_number
+        output.puts ""
+      end
     end
 
     def calc_exact_matches_one
