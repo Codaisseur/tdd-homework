@@ -1,6 +1,9 @@
 class Codebreaker
+
   class Game
     attr_reader :output
+    attr_reader :secret_number
+    NUMBER_LENGTH = 4
 
     def initialize(output)
       @output = output
@@ -14,7 +17,16 @@ class Codebreaker
     end
 
     def guess(input)
-    @input = input
+      @input = input
+      @input.length != NUMBER_LENGTH
+        output.puts "Please try guessing a number with four digits"
     end
+
+    def length_correct?
+      @input.length == NUMBER_LENGTH
+    end
+
+
+
   end
 end
