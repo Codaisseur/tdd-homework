@@ -56,7 +56,7 @@ class Codebreaker
     def calc_exact_matches_two
       secret_number_combi = @secret_number.split(//).combination(2).to_a
       input_combi = @input.split(//).combination(2).to_a
-      if secret_number_combi.each { |subarray| subarray.include?(input_combi)} 
+      if secret_number_combi.each { |subarray| subarray.include?(input_combi)}
         output.puts "++"
       end
     end
@@ -81,8 +81,8 @@ class Codebreaker
       input_arr = @input.split(//).combination(2).to_a
       secret_arr = @secret_number.split(//).combination(2).to_a
 
-      input_arr.each_with_index do |num, i|
-        if secret_arr.include?(num)
+      input_arr.each_with_index do |num, index|
+        if secret_arr.include?(num) && secret_arr[index] != num
           output.puts "--"
         end
       end
