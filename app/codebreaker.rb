@@ -16,6 +16,9 @@ class Codebreaker
     def guess(input)
       @input = input
       output.puts "Try guessing a number with four digits" unless input.length == 4
+      if invalid_input?
+        return false
+      end
 
       if input != @secret_number
         output.puts ""
@@ -75,10 +78,9 @@ class Codebreaker
     def has_won?
       @input == @secret_number
     end
+
+    def invalid_input?
+      @input.length != 4
+    end
   end
 end
-# secret_number_arr = @secret_number.split(//)
-# input_arr = @input.split(//)
-# if secret_number_arr.each {|i| i.include?(input_arr)}
-#   output.puts "-"
-# end
