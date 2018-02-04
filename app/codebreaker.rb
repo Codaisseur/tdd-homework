@@ -26,6 +26,7 @@ class Codebreaker
       calc_exact_matches_two
       calc_exact_matches_three
       calc_one_number_match
+      calc_two_number_match
       has_won
     end
 
@@ -73,6 +74,14 @@ class Codebreaker
         output.puts ""
       else
         output.puts "-"
+      end
+    end
+
+    def calc_two_number_match
+      input_arr = @input.split(//)
+      secret_arr = @secret_number.split(//)
+      if input_arr.each_with_index { |guess| secret_arr.include?(guess)}
+        output.puts "--"
       end
     end
 
