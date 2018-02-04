@@ -24,6 +24,8 @@ class Codebreaker
       calc_exact_matches_one
       calc_exact_matches_two
       calc_exact_matches_three
+      calc_one_number_match
+
       if has_won?
         output.puts "++++"
       end
@@ -62,7 +64,12 @@ class Codebreaker
       end
     end
 
-    def calc_number_matches
+    def calc_one_number_match
+      if @secret_number.size == @input.size && @secret_number.delete(@input).empty?
+        output.puts ""
+      else
+        output.puts "-"
+      end
     end
 
     def has_won?
@@ -70,3 +77,8 @@ class Codebreaker
     end
   end
 end
+# secret_number_arr = @secret_number.split(//)
+# input_arr = @input.split(//)
+# if secret_number_arr.each {|i| i.include?(input_arr)}
+#   output.puts "-"
+# end
