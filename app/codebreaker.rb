@@ -21,7 +21,7 @@ class Codebreaker
         return false
       end
 
-      no_match                      #van al deze mogelijkheden/methods moet ik 1 output/result maken
+      no_match
       calc_exact_matches_one
       calc_exact_matches_two
       calc_exact_matches_three
@@ -56,8 +56,8 @@ class Codebreaker
     def calc_exact_matches_two
       secret_number_combi = @secret_number.split(//).combination(2).to_a
       input_combi = @input.split(//).combination(2).to_a
-      if secret_number_combi.each { |subarray| subarray.include?(input_combi)} #hier iets met .each over de inputcombi
-        output.puts "++"                                                       #want check nu niet elke subarray los
+      if secret_number_combi.each { |subarray| subarray.include?(input_combi)} 
+        output.puts "++"
       end
     end
 
