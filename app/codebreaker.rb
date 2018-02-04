@@ -85,10 +85,5 @@ class Codebreaker
     def invalid_input?
       @input.length != 4
     end
-
-    # def answers_one
-    #   @output == 1
-    # end
-
   end
 end
