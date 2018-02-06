@@ -14,10 +14,88 @@ class Codebreaker
     end
 
     def guess(input)
-      # Make sure to replace next line with the actual implemented marking algorithm,
-      # using the @secret_number
+      @input = input
+      output.puts "Try guessing a number with four digits" unless input.length == 4
 
-      output.puts "you typed '#{input}'"
+      if invalid_input?
+        return false
+      end
+
+      no_match
+      calc_exact_matches_one
+      calc_exact_matches_two
+      calc_exact_matches_three
+      calc_one_number_match
+      calc_two_number_match
+      has_won
+    end
+
+    def no_match
+      if @input != @secret_number
+        output.puts ""
+      end
+    end
+
+    def calc_exact_matches_one
+      secret_number = @secret_number.split(//)
+      input = @input.split(//)
+
+      if secret_number[0] == input[0]
+        output.puts "+"
+      elsif secret_number[1] == input[1]
+        output.puts "+"
+      elsif secret_number[2] == input[2]
+        output.puts "+"
+      elsif secret_number[3] == input[3]
+        output.puts "+"
+      else
+        output.puts ""
+      end
+    end
+
+    def calc_exact_matches_two
+      secret_number_combi = @secret_number.split(//).combination(2).to_a
+      input_combi = @input.split(//).combination(2).to_a
+      if secret_number_combi.each { |subarray| subarray.include?(input_combi)}
+        output.puts "++"
+      end
+    end
+
+    def calc_exact_matches_three
+      secret_number_combi = @secret_number.split(//).combination(3).to_a
+      input_combi = @input.split(//).combination(3).to_a
+      if secret_number_combi.each { |subarray| subarray.include?(input_combi)}
+        output.puts "+++"
+      end
+    end
+
+    def calc_one_number_match
+      if @secret_number.size == @input.size && @secret_number.delete(@input).empty?
+        output.puts ""
+      else
+        output.puts "-"
+      end
+    end
+
+    def calc_two_number_match
+      input_arr = @input.split(//).combination(2).to_a
+      secret_arr = @secret_number.split(//).combination(2).to_a
+
+      input_arr.each_with_index do |num, index|
+        if secret_arr.include?(num) && secret_arr[index] != num
+          output.puts "--"
+        end
+      end
+    end
+
+    def has_won
+      if @input == @secret_number
+        output.puts "++++"
+      end
+    end
+
+    def invalid_input?
+      @input.length != 4
     end
   end
 end
