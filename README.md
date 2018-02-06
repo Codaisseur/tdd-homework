@@ -31,32 +31,39 @@ $ bin/codebreaker
 
 Welcome to Codebreaker
 Enter guess:
-1234
-++-
+8765
++
+2145
+++--
 1245
 ++++
 ```
 
-In the first feedback, you see a result of two plusses and one minus. The numbers 1 and 2 are an exact match: these numbers are correct and on the correct place, the number 4 is present in the secret number, but on a different location.
-The last feedback is all plusses, since you've magically guessed correct!
+In the first feedback, you see a result of one plus. That means one of the numbers is an exact match: it is the correct number, placed on the right location.
+The next feedback gives you two pluses and two minuses. 2 numbers are an exact match: these numbers are correct and on the correct place, 2 numbers are number matches; meaning that the number is present in the secret number, but on a different location.
+The last feedback is all pluses, since you've magically guessed correctly!
 
 You can keep on guessing even after the program awards you an output of (`++++`).
 
 If you (ever) get tired of the game you can quit it by hitting `CTRL`-`C`. We are building a game for terminal savvy developers :D
 
 ## Your assignment
-Implement a matching algorithm (the `#guess` method), while being guided by a testsuite.
+Implement a matching algorithm (the `#guess` method), while being guided by a test suite.
 
-The contexts are prepended by a letter (e.g `[A] it works` or `[B] it works`). If you implementat of the `#guess` method in alphabetical order of these context, you start with low complexity. Each new context adds extra complexity. So, free advice: start with the tests under context 'A', and only after implementing that (with as little code as possible, not at all regarding the future contexts), you should move on to tests starting with 'B', et cetera.
+The contexts are prepended by a letter (e.g `[A] it works` or `[B] it works`). If you implement the `#guess` method in alphabetical order of these contexts, you start with low complexity, but really important basic features first.
+Each new context adds extra complexity. Start with the tests under context 'A', and only after implementing that (with as little code as possible, not at all regarding the future contexts), you should move on to tests starting with 'B', et cetera.
+It could be that you break something a previous context while implementing a later context. Make sure to fix this kind of errors as soon as they surface.
 
-While implementing the failing tests so they pass, keep thinking about the Red -> Green -> Refactor circle. So after a test passes, try to sniff out your code smells, and act on them.
+While implementing the failing tests so they pass, keep thinking about the Red -> Green -> Refactor circle. So after a test passes, try to sniff out your code smells, and act on them **immediately**.
 
 If you're done implementing the tests in one context, make sure to...
-* celebrate your progress
-* eat some fruit
-* hug your pet
-* take a small walk outside to enjoy the rain/sun/snow/haze
-* whatever, as long as you take a small break and keep on smiling.
+* Celebrate your progress
+* Eat some fruit
+* Hug your pet
+* Take a small walk outside to enjoy the rain/sun/snow/haze
+* Whatever, as long as you take a small break and keep on smiling.
+
+Since you will be working on a fork of this branch: Make sure when creating Pull Requests that your base branch is the master branch of your fork of this repo. In other words, don't create Pull Request against this repository, it wont be accepted anyway. :D
 
 ## Evaluation goals:
 
@@ -88,10 +95,10 @@ Good luck (and have fun)!
 - Regarding context C, D, E, F:
   - The input of the user is a string. The secret number is also a string. Make sure to read the [Ruby docs on Strings](https://ruby-doc.org/core-2.4.1/String.html) on the methods you have on strings.
 - Regarding context G:
-  - run the program (`bin/codebreaker`), and check the input '1122' against the secret '4321'. Did the output meet your expectations?
-  - to solve ther logical error, we have to check per digit in our `number guess` part if it is not already matched.
-- Regading code coverage:
-  - To see if all your code is executed in the tests, we've included a code-coverage tool. in your (MacOs) terminal type `open coverage/index.html`. In your linux terminal type `sensible-browser coverage/index.html`. Or just open that file with Chrome/Firefox. Click around to see what it means. A coverage of 100% is expected - don't add code you don't have tests for.
+  - Run the program (`bin/codebreaker`), and check the input '1122' against the secret '4321'. Did the output meet your expectations?
+  - To solve the logical error, we have to check per digit in our `number guess` part if it is not already matched.
+- Regarding code coverage:
+  - To see if all your code is executed in the tests, we've included a code-coverage tool. in your (MacOs) terminal type `open coverage/index.html`. In your linux terminal type `sensible-browser coverage/index.html`. Or just open that file with Chrome / Firefox. Click around to see what it means. A coverage of 100% is expected - don't add code you don't have tests for.
 
 And some hints regarding ~~clean code~~ refactoring:
 - Make your code more expressive by reducing your helper variables

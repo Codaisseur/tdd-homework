@@ -233,6 +233,16 @@ RSpec.describe Codebreaker do
 
         game.guess(input)
       end
+
+      it "a match can happen twice" do
+        game.start(secret_number)
+        input = '1234'
+        expect(output).to receive(:puts).with('++++')
+        game.guess(input)
+
+        expect(output).to receive(:puts).with('++++')
+        game.guess(input)
+      end
     end
   end
 end
